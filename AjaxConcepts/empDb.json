@@ -1,0 +1,22 @@
+{
+  "empPayrollDB": [
+    {
+      "id": 100,
+      " name": "Jyothi",
+      "gender": "female",
+      "department": [
+        "Sales",
+        "Finance"
+      ],
+      "salary": "400000",
+      "startDate": "12 Oct 2019",
+      "note": "All is well",
+      "profilePic": "../assets/profile-images/Ellipse -1.png"
+    },
+    {
+      "name": "Aravand",
+      "salary": "5000",
+      "id": 101
+    }
+  ]
+}
