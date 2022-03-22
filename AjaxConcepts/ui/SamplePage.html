@@ -25,37 +25,39 @@
     <div id="delete_services"></div>
     <div id="post_services"></div>
     <script>
+      const deleteElem = document.querySelector("#delete_services");
+      const deleteURL = "http://127.0.0.1:3000/employees/101";
+      makePromiseCall("DELETE", deleteURL, false)
+        .then(responseText => {
+          deleteElem.textContent = "DELETE Data: " + responseText;
+        })
+        .catch(error => {
+          deleteElem.textContent = "DELETE Error Status: " + JSON.stringify(error);
+        });
+
+
+        const postElem = document.querySelector("#post_services");
+      const postURL = "http://127.0.0.1:3000/employees";
+      const emplData = { name: "khalil", salary: "40000" };
+      makePromiseCall("POST", postURL, true, emplData)
+        .then(responseText => {
+          postElem.textContent = "New User Data: " + responseText;
+        })
+        .catch(error => {
+          postElem.textContent = "POST Error Status: " + JSON.stringify(error);
+        });
+
       const getElem = document.querySelector("#get_services");
-      const getURL = "http://127.0.0.1:3000/empPayRollDB/100";
+      const getURL = "http://127.0.0.1:3000/employees";
       makePromiseCall("GET", getURL, true)
-        .then((responseText) => {
+        .then(responseText => {
           getElem.textContent = "Get User Data: " + responseText;
         })
-        .catch((error) => {
+        .catch(error => {
           getElem.textContent = "GET Error Status: " + JSON.stringify(error);
         });
 
-      const deleteElem = document.querySelector("#delete_services");
-      const deleteURL = "http://127.0.0.1:3000/empPayRollDB/102";
-      makePromiseCall("DELETE", deleteURL, false)
-        .then((responseText) => {
-          deleteElem.textContent = "DELETE Data: " + responseText;
-        })
-        .catch((error) => {
-          deleteElem.textContent =
-            "DELETE Error Status: " + JSON.stringify(error);
-        });
 
-      const postElem = document.querySelector("#post_services");
-      const postURL = "http://127.0.0.1:3000/empPayRollDB/";
-      const emplData = { name: "James", salary: "5000" };
-      makePromiseCall("POST", postURL, true, emplData)
-        .then((responseText) => {
-          postElem.textContent = "New User Data: " + responseText;
-        })
-        .catch((error) => {
-          postElem.textContent = "POST Error Status: " + JSON.stringify(error);
-        });
     </script>
   </body>
 </html>
